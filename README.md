@@ -63,36 +63,37 @@ Customer message text is capped at 2000 characters, stripped of control characte
 
 ## Running the project
 
-### Demo mode (no API key, no Docker required)
+### Demo mode (mock AI, no API key required)
 
-Mac/Linux: use `cp ../.env.example .env` instead of the `copy` command below.
+The default demo uses the included synthetic customers/orders, SQLite database, and built-in mock AI provider. No external database or AI API key is required.
+
+**Windows Command Prompt**
 
 **Terminal 1 - Backend:**
 
-```
+cmd
 cd refundiq
 cd backend
-copy ..\\.env.example .env
+copy ..\.env.example .env
 npm install
 npm run seed
 npm start
-```
+
 
 **Terminal 2 - Frontend:**
 
-```
+cmd
 cd refundiq
 cd frontend
 npm install
 npm run dev
-```
 
-Open http://localhost:3000
 
-The `.env.example` sets `AI_PROVIDER=mock` by default. No API key is needed.
+Open `http://localhost:3000`.
 
----
+The `.env.example` sets `AI_PROVIDER=mock` by default.
 
+**Mac/Linux:** use `cp ../.env.example .env` instead of the Windows `copy` command.
 ### Real AI mode (optional)
 
 To test with the actual Anthropic API:
@@ -102,9 +103,9 @@ To test with the actual Anthropic API:
 3. Set `ANTHROPIC_API_KEY=your_key_here`
 4. Restart the backend:
 
-```
+
 npm start
-```
+
 
 No other changes are needed. The same mock data and policy logic apply.
 
@@ -112,11 +113,11 @@ No other changes are needed. The same mock data and policy logic apply.
 
 ### Docker (submission mode)
 
-```
+
 cd refundiq
 copy .env.example .env
 docker-compose up --build
-```
+
 
 Frontend: http://localhost:3000  
 API health: http://localhost:3001/api/health
@@ -141,10 +142,10 @@ The database seeds automatically on start. `AI_PROVIDER` defaults to `mock` unle
 
 Run the policy unit tests:
 
-```
+
 cd backend
 npm test
-```
+
 
 28 tests covering eligible refunds, final sale, expired return window, high-value escalation, duplicates, suspicious flags, prompt injection, policy-AI conflict resolution, invalid AI responses, and input sanitisation.
 
@@ -163,7 +164,7 @@ npm test
 
 ## Project structure
 
-```
+
 refundiq/
   backend/
     src/
@@ -181,7 +182,7 @@ refundiq/
       lib/          api.js, utils.js
   docker-compose.yml
   README.md
-```
+
 
 ---
 
