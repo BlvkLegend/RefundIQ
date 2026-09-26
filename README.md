@@ -93,6 +93,8 @@ Open `http://localhost:3000`.
 
 The `.env.example` sets `AI_PROVIDER=mock` by default.
 
+**Local development:** If running the frontend and backend outside Docker, change the frontend API target from `http://backend:3001` to `http://localhost:3001`.
+
 **Mac/Linux:** use `cp ../.env.example .env` instead of the Windows `copy` command.
 ### Real AI mode (optional)
 
