@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Dark mode (default) */
+  html.dark {
+    background-color: #03050b;
+    color: #f0f4ff;
+  }
+
+  /* Light mode */
+  html.light {
+    background-color: #f4f7fb;
+    color: #0f1f33;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: inherit;
+    color: inherit;
+  }
+
+  /* Light mode body overrides */
+  html.light body {
+    background-color: #f4f7fb;
+  }
+
+  ::selection {
+    background-color: #c8943a40;
+    color: #c8943a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #c8943a;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  html.dark ::-webkit-scrollbar-thumb { background: #243447; border-radius: 3px; }
+  html.light ::-webkit-scrollbar-thumb { background: #c8d8e8; border-radius: 3px; }
+}
+
+/* Light mode utility overrides - applied when html.light is active */
+html.light .bg-surface-0 { background-color: #f4f7fb !important; }
+html.light .bg-surface-1 { background-color: #ffffff !important; }
+html.light .bg-surface-2 { background-color: #f0f4f8 !important; }
+html.light .bg-surface-3 { background-color: #e4ecf4 !important; }
+html.light .border-border-subtle { border-color: #c8d8e8 !important; }
+html.light .border-border-default { border-color: #b0c8dc !important; }
+html.light .border-border-strong { border-color: #8cb0cc !important; }
+html.light .text-text-primary { color: #0f1f33 !important; }
+html.light .text-text-secondary { color: #3d5470 !important; }
+html.light .text-text-muted { color: #6080a0 !important; }
+html.light .text-accent { color: #a8720a !important; }
+html.light .text-accent-light { color: #c8943a !important; }
+html.light .bg-accent { background-color: #c8943a !important; }
+html.light .bg-accent-bg { background-color: #fdf3e0 !important; }
+html.light .border-accent-dim { border-color: #e0b060 !important; }
+html.light .text-status-approved-text { color: #1a7a50 !important; }
+html.light .text-status-denied-text { color: #c03030 !important; }
+html.light .text-status-escalated-text { color: #9a6010 !important; }
+html.light .text-status-pending-text { color: #1060a0 !important; }
+html.light .bg-status-approved { background-color: #e0f4ec !important; }
+html.light .bg-status-denied { background-color: #fce8e8 !important; }
+html.light .bg-status-escalated { background-color: #fdf0d0 !important; }
+html.light .border-status-approved { border-color: #50c090 !important; }
+html.light .border-status-denied { border-color: #e06060 !important; }
+html.light .border-status-escalated { border-color: #d09030 !important; }
+html.light .hover\:bg-surface-2:hover { background-color: #e8f0f8 !important; }
+
+@layer utilities {
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
